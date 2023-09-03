@@ -4,10 +4,12 @@ class ErroBase extends Error {
     this.message = mensagem;
     this.status = status;
   }
+
   enviarResposta(res) {
-    res.status = res
-      .status(this.status)
-      .send({ mensagem: this.message, status: this.status });
+    res.status(this.status).send({
+      mensagem: this.message,
+      status: this.status
+    });
   }
 }
 

@@ -1,13 +1,19 @@
 import mongoose from "mongoose";
 
-const autorSchema = mongoose.Schema(
+const autorSchema = new mongoose.Schema(
   {
-    id: { type: "string"},
-    nome: { type: "string", required: [true, "O nome do Autor é obrigatório"] },
-    nacionalidade: { type: "string"},
+    id: {type: String},
+    nome: {
+      type: String,
+      required: [true, "O nome do(a) autor(a) é obrigatório"]
+    },
+    nacionalidade: {type: String}
   },
-  { versionKey: false }
+  {
+    versionKey: false
+  }
 );
 
 const autores = mongoose.model("autores", autorSchema);
+
 export default autores;
